@@ -1,0 +1,8 @@
+.search-container {
+  display: flex;
+  max-width: 700px;
+}
+
+.search-field {
+  flex-grow: 1;
+}

@@ -1,0 +1,8 @@
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.github-logo {
+    height: 26px;
+    margin: 0 4px 3px 0;
+}
