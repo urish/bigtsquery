@@ -9,6 +9,7 @@
     "strictNullChecks": true,
     "outDir": "lib",
     "sourceMap": true,
+    "types": ["jest"],
     "target": "es6"
   },
   "compileOnSave": true,
