@@ -58,6 +58,19 @@
   dependencies:
     tslib "1.9.0"
 
+"@google-cloud/bigquery@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/bigquery/-/bigquery-1.3.0.tgz#642b663ef9cd32e95af6e624f89fbacb4ec8fe1d"
+  dependencies:
+    "@google-cloud/common" "^0.17.0"
+    arrify "^1.0.0"
+    duplexify "^3.5.0"
+    extend "^3.0.1"
+    is "^3.0.1"
+    stream-events "^1.0.1"
+    string-format-obj "^1.0.0"
+    uuid "^3.1.0"
+
 "@google-cloud/common@^0.17.0":
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/common/-/common-0.17.0.tgz#8ef558750db481fc10a13757a49479ab9a1c8c07"
@@ -4337,7 +4350,7 @@ stream-shift@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.0.tgz#d5c752825e5367e786f78e18e445ea223a155952"
 
-string-format-obj@^1.1.0:
+string-format-obj@^1.0.0, string-format-obj@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string-format-obj/-/string-format-obj-1.1.1.tgz#c7612ca4e2ad923812a81db192dc291850aa1f65"
 

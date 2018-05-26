@@ -1,53 +1,38 @@
-import { tsquery } from '@phenomnomnominal/tsquery';
 import * as e from 'express';
-import { createReadStream } from 'fs';
-import { createInterface } from 'readline';
-import { getTextAround } from './search-utils';
+import * as Bigquery from '@google-cloud/bigquery';
+import { getSqlQuery } from './sql-query';
+import { IMatch } from './search-utils';
 
-const maxResults = 100;
+const credentials = require('../bigquery-credentials.json');
 
-interface IDatasetEntry {
-  id: string;
-  content: string;
-  paths: string[];
-}
+const bigquery = Bigquery({
+  credentials,
+  projectId: credentials.project_id,
+});
 
 interface IQueryResult {
   id: string;
   paths: string[];
-  text: string;
-  line: number;
-  matchLine: number;
-  matchChar: number;
-  matchLength: number;
+  match: string;
 }
 
-export function astQuery(request: e.Request, response: e.Response) {
+export async function astQuery(request: e.Request, response: e.Response) {
   const { q } = request.query;
-  const lineReader = createInterface({
-    input: createReadStream('src/dataset.json'),
-  });
-  const results: IQueryResult[] = [];
-  lineReader.on('line', (datasetEntry) => {
-    if (results.length >= maxResults) {
-      return;
-    }
-    const { id, paths, content } = JSON.parse(datasetEntry) as IDatasetEntry;
-    const sourceFile = tsquery.ast(content);
-    try {
-      for (const node of tsquery(sourceFile, q)) {
-        results.push({
-          id,
-          paths,
-          ...getTextAround(node),
-        });
-        if (results.length >= maxResults) {
-          break;
-        }
-      }
-    } catch (err) {}
-  });
-  lineReader.on('close', () => {
-    response.json(results);
-  });
+  try {
+    const [result] = await bigquery.query<IQueryResult>({
+      query: getSqlQuery(),
+      params: [q],
+      maxResults: 10,
+    });
+    response.json(
+      result.map((entry) => ({
+        id: entry.id,
+        paths: entry.paths,
+        ...(JSON.parse(entry.match) as IMatch),
+      })),
+    );
+  } catch (err) {
+    console.error(err);
+    response.json({ error: true });
+  }
 }

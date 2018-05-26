@@ -1,16 +1,24 @@
 import * as ts from 'typescript';
 
-function getLinesAround(totalLines: number) {
-  if (totalLines < 2) {
-    return 3;
-  }
-  if (totalLines < 4) {
-    return 2;
-  }
-  return 1;
+export interface IMatch {
+  text: string;
+  line: number;
+  matchLine: number;
+  matchChar: number;
+  matchLength: number;
 }
 
-export function getTextAround(node: ts.Node) {
+export function getTextAround(node: ts.Node): IMatch {
+  const getLinesAround = (numLines: number) => {
+    if (numLines < 2) {
+      return 3;
+    }
+    if (numLines < 4) {
+      return 2;
+    }
+    return 1;
+  };
+
   const sourceFile = node.getSourceFile();
   const sourceCode = sourceFile.getFullText();
   const { line: startLine, character } = ts.getLineAndCharacterOfPosition(

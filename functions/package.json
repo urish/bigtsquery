@@ -13,6 +13,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@google-cloud/bigquery": "^1.3.0",
     "@phenomnomnominal/tsquery": "^1.0.1",
     "cors": "^2.8.4",
     "express": "^4.16.3",
