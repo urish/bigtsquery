@@ -14,4 +14,4 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 
-<app-search-results [results]="results"></app-search-results>
+<app-search-results *ngIf="results" [results]="results"></app-search-results>

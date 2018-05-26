@@ -1,7 +1,14 @@
-<div class="search-results" *ngIf="results">
-  <h3>Search results</h3>
-  <div *ngFor="let result of results">
-    <app-search-result [result]="result"></app-search-result>
-    <hr />
-  </div>
-</div>
+<h2 class="mat-h2">Search results</h2>
+<p *ngIf="!results.length">
+  No results found. Please check your query and try again.
+</p>
+<mat-card *ngFor="let result of results">
+  <h3 class="mat-h3">
+    <div *ngFor="let path of result.paths.slice(0,5)">
+      <a href="https://github.com/{{path}}#L{{result.matchLine+1}}" target="_blank">
+        {{path|formatRepoLink}}
+      </a>
+    </div>
+  </h3>
+  <app-search-result [result]="result"></app-search-result>
+</mat-card>

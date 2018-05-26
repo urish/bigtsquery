@@ -18,6 +18,7 @@ import { HighlightMatchPipe } from './highlight-match.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { FormatRepoLinkPipe } from './format-repo-link.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     SearchResultsComponent,
     HighlightMatchPipe,
     SearchResultComponent,
+    FormatRepoLinkPipe,
   ],
   imports: [
     BrowserModule,

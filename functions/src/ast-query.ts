@@ -6,8 +6,15 @@ import { getTextAround } from './search-utils';
 
 const maxResults = 100;
 
+interface IDatasetEntry {
+  id: string;
+  content: string;
+  paths: string[];
+}
+
 interface IQueryResult {
   id: string;
+  paths: string[];
   text: string;
   line: number;
   matchLine: number;
@@ -25,12 +32,13 @@ export function astQuery(request: e.Request, response: e.Response) {
     if (results.length >= maxResults) {
       return;
     }
-    const { id, content } = JSON.parse(datasetEntry);
+    const { id, paths, content } = JSON.parse(datasetEntry) as IDatasetEntry;
     const sourceFile = tsquery.ast(content);
     try {
       for (const node of tsquery(sourceFile, q)) {
         results.push({
           id,
+          paths,
           ...getTextAround(node),
         });
         if (results.length >= maxResults) {
