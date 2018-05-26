@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IQueryResult } from '../ast-search.service';
 
 @Component({
@@ -6,9 +6,6 @@ import { IQueryResult } from '../ast-search.service';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.css'],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent {
   @Input() results: IQueryResult[];
-  constructor() {}
-
-  ngOnInit() {}
 }

@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
 const serverUrl = `https://us-central1-bigtsquery.cloudfunctions.net/`;
 
 export interface IQueryResult {
-  id: string;
   text: string;
-  start: number;
-  end: number;
+  line: number;
+  matchLine: number;
+  matchChar: number;
+  matchLength: number;
 }
 
 @Injectable({

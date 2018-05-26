@@ -14,10 +14,19 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { HighlightMatchPipe } from './highlight-match.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, SearchResultsComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    SearchResultsComponent,
+    HighlightMatchPipe,
+    SearchResultComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
