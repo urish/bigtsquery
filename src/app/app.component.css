@@ -6,3 +6,18 @@
 .search-field {
   flex-grow: 1;
 }
+
+.loading-container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.loading-container mat-spinner {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+
+.loading-indicator {
+  margin: 16px;
+}
