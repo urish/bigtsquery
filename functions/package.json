@@ -6,6 +6,7 @@
     "serve": "npm run build && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
+    "test": "jest",
     "watch": "tsc --watch",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
@@ -20,7 +21,16 @@
     "typescript": "^2.8.3"
   },
   "devDependencies": {
+    "jest": "^23.0.0",
+    "ts-jest": "^22.4.6",
     "tslint": "^5.8.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "src/.+\\.spec\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
   },
   "private": true
 }
