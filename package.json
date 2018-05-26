@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:functions": "firebase serve --only functions",
     "build": "ng build",
-    "deploy": "yarn build && yarn firebase deploy",
+    "deploy": "yarn build && firebase deploy",
     "precommit": "lint-staged",
     "test": "ng test",
     "lint": "ng lint",
