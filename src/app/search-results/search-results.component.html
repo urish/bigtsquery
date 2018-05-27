@@ -5,7 +5,7 @@
 <mat-card *ngFor="let result of results">
   <h3 class="mat-h3">
     <div *ngFor="let path of result.paths.slice(0,5)">
-      <a href="https://github.com/{{path}}#L{{result.matchLine+1}}" target="_blank">
+      <a class="github-link" href="https://github.com/{{path}}#L{{result.matchLine+1}}" target="_blank">
         {{path|formatRepoLink}}
       </a>
     </div>
