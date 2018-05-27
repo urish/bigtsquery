@@ -2,6 +2,8 @@
 
 Run TypeScript AST Queries across all public TypeScript code on GitHub.
 
+[![Build Status](https://travis-ci.org/urish/bigtsquery.svg?branch=master)](https://travis-ci.org/urish/bigtsquery)
+
 ## Development
 
 Starting dev server (http://localhost:4200/):
