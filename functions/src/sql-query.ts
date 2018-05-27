@@ -26,7 +26,7 @@ export function getSqlQuery(limit = 100) {
     RETURNS ARRAY<STRING>
     LANGUAGE js AS """ ${getUmlCode().replace(/\\/g, '\\\\')} """
     OPTIONS (
-      library="gs://bigtsquery/tsquery.umd.min.js"
+      library="gs://bigtsquery/tsquery-1.0.3.umd.min.js"
     );
 
     SELECT
