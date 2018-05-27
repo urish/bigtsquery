@@ -7,17 +7,20 @@
     <a href="https://github.com/phenomnomnominal/tsquery#selectors" target="_blank">AST Selectors</a>, and performs the search over nearly 1 million source files found on GitHub.
   </p>
   <p class="mat-typography app-description">
-    Type your query below, or use one of the following presets, and then click the search button:
+    Type your query below or use one of the following presets, and then click the search button:
   </p>
   <p class="mat-typography sample-queries">
     <a href="#" (click)="astQuery='FunctionDeclaration:has(ExportKeyword)>Identifier'">
-      All Exported Functions
+      Exported Functions
     </a>
     <a href="#" (click)="astQuery='ClassDeclaration:has(ExportKeyword)>Identifier'">
-      All Exported Classes
+      Exported Classes
     </a>
     <a href="#" (click)="astQuery='Decorator>CallExpression[expression.name=Component]'">
       Angular Components
+    </a>
+    <a href="#" (click)="astQuery='ClassDeclaration:has(HeritageClause Identifier[name=Vue])'">
+      Vue Components
     </a>
   </p>
   <div class="search-container">
