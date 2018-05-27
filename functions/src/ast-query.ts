@@ -18,6 +18,7 @@ interface IQueryResult {
 
 export async function astQuery(request: e.Request, response: e.Response) {
   const { q } = request.query;
+  console.log(`[${request.ip}] Query: ${q}`);
   try {
     const [result] = await bigquery.query<IQueryResult>({
       query: getSqlQuery(),
