@@ -21,3 +21,16 @@
 .loading-indicator {
   margin: 16px;
 }
+
+a {
+  text-decoration: none;
+}
+
+.app-description {
+  max-width: 700px;
+}
+
+.sample-queries a {
+  display: inline-block;
+  margin-right: 16px;
+}
