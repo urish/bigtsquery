@@ -18,7 +18,6 @@ describe('sql-query', () => {
 
   describe('getSqlQuery', () => {
     it('should return a string', () => {
-      require('fs').writeFileSync('c:/p/query.sql', getSqlQuery());
       expect(getSqlQuery()).toEqual(expect.any(String));
     });
   });
