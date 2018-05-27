@@ -1,0 +1,64 @@
+[
+  {
+    "id": "f4ad92f94615dd58b69f3508520307385725e556",
+    "paths": ["mapperCoderZ/seekTheDuck17/blob/master/src/app/shared/map/map.component.ts"],
+    "text":
+      "  //When using OnPush detectors, then the framework will check an OnPush \n  //component when any of its input properties changes, when it fires \n  //an event, or when an observable fires an event ~ Victor Savkin (Angular Team)\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class MapComponent implements OnInit, AfterContentInit {\n  ",
+    "line": 11,
+    "matchLine": 14,
+    "matchChar": 43,
+    "matchLength": 6
+  },
+  {
+    "id": "d143e2d09d4eee4b1d66b40caf474046b4ec89e7",
+    "paths": [
+      "TheOriginalJosh/TypeScript-Angular-Components/blob/master/source/components/cardContainer/selectableCardContainer.ts",
+      "SamGraber/TypeScript-Angular-Components/blob/master/source/components/cardContainer/selectableCardContainer.ts",
+      "RenovoSolutions/TypeScript-Angular-Components/blob/master/source/components/cardContainer/selectableCardContainer.ts"
+    ],
+    "text":
+      "\t\t\tuseExisting: forwardRef(() => SelectableCardContainerComponent),\n\t\t},\n\t],\n\tchangeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectableCardContainerComponent<T extends IdentityItem> extends CardContainerComponent<T> {\n\tprivate _selectionFilteredData: BehaviorSubject<ISelectionWrappedItem<T>[]>;",
+    "line": 44,
+    "matchLine": 47,
+    "matchChar": 42,
+    "matchLength": 6
+  },
+  {
+    "id": "af2be413587dae89d8011a217399c04cf163cc1b",
+    "paths": [
+      "andrewseguin/material2/blob/master/src/lib/table/table.ts",
+      "amcdnl/material2/blob/master/src/lib/table/table.ts",
+      "crisbeto/material2/blob/master/src/lib/table/table.ts",
+      "angular/material2/blob/master/src/lib/table/table.ts",
+      "josephperrott/material2/blob/master/src/lib/table/table.ts"
+    ],
+    "text":
+      "    'class': 'mat-table',\n  },\n  encapsulation: ViewEncapsulation.None,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class MatTable<T> extends CdkTable<T> {\n  // TODO(andrewseguin): Remove this explicitly set constructor when the compiler knows how to",
+    "line": 29,
+    "matchLine": 32,
+    "matchChar": 43,
+    "matchLength": 6
+  },
+  {
+    "id": "90855e2b7e9334d58d2d8cebdf1920b4ebcbc247",
+    "paths": [
+      "mzolkiewski/ng-courses/blob/master/src/app/courses/course-edit/course-edit.component.ts"
+    ],
+    "text":
+      "  selector: 'c-course-edit',\n  styleUrls: [ './course-edit.component.scss' ],\n  templateUrl: './course-edit.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class CourseEditComponent implements OnInit, OnDestroy {\n  public editMode = false;",
+    "line": 29,
+    "matchLine": 32,
+    "matchChar": 43,
+    "matchLength": 6
+  },
+  {
+    "id": "c13d933aaf9ce64d7d889245c7497b349fd776d3",
+    "paths": ["BioWareRu/Admin/blob/master/src/app/news/list/newslist.component.ts"],
+    "text":
+      "  moduleId: module.id,\n  selector: 'app-newslist-cmp',\n  templateUrl: './newslist.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class NewsListComponent extends ListComponent<News> {\n",
+    "line": 13,
+    "matchLine": 16,
+    "matchChar": 43,
+    "matchLength": 6
+  }
+]
