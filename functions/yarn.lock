@@ -165,9 +165,9 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@phenomnomnominal/tsquery@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-1.0.3.tgz#d8b0a90451af2f5a2401cf553f4143523e74d4d4"
+"@phenomnomnominal/tsquery@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-1.0.4.tgz#dd811a56a6044b718e0d9d9bb7e67356fa9ccc2a"
   dependencies:
     esquery "^1.0.1"
 
