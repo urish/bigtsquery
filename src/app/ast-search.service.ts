@@ -4,12 +4,17 @@ import { HttpClient } from '@angular/common/http';
 // for localhost: http://localhost:5000/bigtsquery/us-central1
 const serverUrl = `https://us-central1-bigtsquery.cloudfunctions.net/`;
 
-export interface IQueryResult {
+export interface IASTQueryMatch {
   text: string;
   line: number;
   matchLine: number;
   matchChar: number;
   matchLength: number;
+}
+
+export interface IQueryResult extends IASTQueryMatch {
+  id: string;
+  paths: string[];
 }
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IQueryResult } from './ast-search.service';
+import { IASTQueryMatch } from './ast-search.service';
 import * as escapeHtml from 'escape-html';
 
 @Pipe({
@@ -7,7 +7,7 @@ import * as escapeHtml from 'escape-html';
   pure: true,
 })
 export class HighlightMatchPipe implements PipeTransform {
-  transform(value: string | undefined, result: IQueryResult): any {
+  transform(value: string | undefined, result: IASTQueryMatch): any {
     if (!value) {
       return '';
     }

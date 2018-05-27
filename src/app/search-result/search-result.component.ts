@@ -3,7 +3,7 @@ import * as Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/plugins/keep-markup/prism-keep-markup';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import { IQueryResult } from '../ast-search.service';
+import { IASTQueryMatch } from '../ast-search.service';
 
 @Component({
   selector: 'app-search-result',
@@ -11,7 +11,7 @@ import { IQueryResult } from '../ast-search.service';
   styleUrls: ['./search-result.component.css'],
 })
 export class SearchResultComponent implements AfterViewInit {
-  @Input() result: IQueryResult;
+  @Input() result: IASTQueryMatch;
 
   @ViewChild('codeEl', { read: ElementRef })
   codeEl: ElementRef;
