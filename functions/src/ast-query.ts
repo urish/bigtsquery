@@ -4,6 +4,7 @@ import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import { IMatch } from './search-utils';
 import { getSqlQuery } from './sql-query';
+import { tsquery } from '@phenomnomnominal/tsquery';
 
 const credentials = require('../bigquery-credentials.json');
 
@@ -42,6 +43,11 @@ export async function astQuery(request: e.Request, response: e.Response) {
   const query = q.trim();
   console.log(`[${request.ip}] Query: ${q}`);
   try {
+    tsquery.parse(query);
+  } catch (err) {
+    response.json({ error: err.toString(), errorKind: 'queryError' });
+  }
+  try {
     const snapshot = await queriesCollection.where('query', '==', query).get();
     let results: IQueryResult[];
     if (snapshot.docs.length) {
@@ -56,15 +62,15 @@ export async function astQuery(request: e.Request, response: e.Response) {
         time: new Date(),
       } as ICacheEntry);
     }
-    response.json(
-      results.map((entry) => ({
+    response.json({
+      results: results.map((entry) => ({
         id: entry.id,
         paths: entry.paths,
         ...(JSON.parse(entry.match) as IMatch),
       })),
-    );
+    });
   } catch (err) {
     console.error(err);
-    response.json({ error: true });
+    response.json({ error: 'Internal server error', errorKind: 'serverError' });
   }
 }

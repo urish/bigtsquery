@@ -1,0 +1,30 @@
+<mat-card class="error-card">
+  <div *ngIf="kind == 'queryError'">
+    <div class="error-icon">
+      <mat-icon>error</mat-icon>
+    </div>
+    <mat-card-title>
+      Invalid Query Selector
+    </mat-card-title>
+    <mat-card-content>
+      <p class="error-message">
+        {{message}}
+      </p>
+      <a href="https://github.com/phenomnomnominal/tsquery#selectors" target="_blank">TSQuery Selector Reference</a>
+    </mat-card-content>
+  </div>
+
+  <div *ngIf="kind == 'serverError'">
+    <div class="error-icon">
+      <mat-icon>error</mat-icon>
+    </div>
+    <mat-card-title>Internal Server Error</mat-card-title>
+    <mat-card-content>
+      <p>
+        Our server had error while processing your query.</p>
+      <p>
+        Please
+        <a href="https://github.com/urish/bigtsquery/issues/new" target="_blank">open an issue</a> and include information about your query.</p>
+    </mat-card-content>
+  </div>
+</mat-card>

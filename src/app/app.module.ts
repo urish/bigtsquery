@@ -19,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { FormatRepoLinkPipe } from './format-repo-link.pipe';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormatRepoLinkPipe } from './format-repo-link.pipe';
     HighlightMatchPipe,
     SearchResultComponent,
     FormatRepoLinkPipe,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,

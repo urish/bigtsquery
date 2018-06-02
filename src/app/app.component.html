@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<mat-card>
+<mat-card class="search-card">
   <h3 class="mat-subheading-2">Query 1 Million TypeScript files</h3>
   <p class="mat-typography app-description">
     BigTSQuery is a powerful source code search engine for TypeScript, built on top of
@@ -29,4 +29,5 @@
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 
-<app-search-results *ngIf="results" [results]="results"></app-search-results>
+<app-error-message *ngIf="queryResponse.error" [message]="queryResponse.error" [kind]="queryResponse.errorKind"></app-error-message>
+<app-search-results *ngIf="queryResponse.results" [results]="queryResponse.results"></app-search-results>

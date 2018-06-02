@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AstSearchService, IQueryResult } from './ast-search.service';
+import { AstSearchService, IQueryResult, IQueryResponse } from './ast-search.service';
 
 interface IPreset {
   name: string;
@@ -15,7 +15,7 @@ interface IPreset {
 export class AppComponent {
   public astQuery = 'FunctionDeclaration:has(ExportKeyword)>Identifier';
   public searching = false;
-  public results: IQueryResult[] | null = null;
+  public queryResponse: IQueryResponse = {};
 
   readonly presets: IPreset[] = [
     { name: 'Exported Functions', value: 'FunctionDeclaration:has(ExportKeyword)>Identifier' },
@@ -32,9 +32,9 @@ export class AppComponent {
 
   search() {
     this.searching = true;
-    this.results = null;
-    this.astSearch.search(this.astQuery).subscribe((results) => {
-      this.results = results;
+    this.queryResponse = {};
+    this.astSearch.search(this.astQuery).subscribe((response) => {
+      this.queryResponse = response;
       this.searching = false;
     });
   }

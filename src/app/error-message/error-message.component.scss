@@ -1,0 +1,27 @@
+.error-card {
+  background: #cf432c;
+  color: #fefdfc;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+mat-card-content {
+  font-size: 18px;
+}
+
+.error-message {
+  font-family: monospace;
+}
+
+.error-icon {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.error-icon mat-icon {
+  font-size: 48px;
+}
+
+a {
+  color: rgb(180, 180, 255);
+}

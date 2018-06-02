@@ -18,6 +18,10 @@
   width: 32px;
 }
 
+.search-card {
+  margin-bottom: 16px;
+}
+
 .loading-indicator {
   margin: 16px;
 }
