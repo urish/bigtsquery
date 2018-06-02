@@ -15,7 +15,7 @@ interface IPreset {
 export class AppComponent {
   public astQuery = 'FunctionDeclaration:has(ExportKeyword)>Identifier';
   public searching = false;
-  public results: IQueryResult[];
+  public results: IQueryResult[] | null = null;
 
   readonly presets: IPreset[] = [
     { name: 'Exported Functions', value: 'FunctionDeclaration:has(ExportKeyword)>Identifier' },
@@ -32,6 +32,7 @@ export class AppComponent {
 
   search() {
     this.searching = true;
+    this.results = null;
     this.astSearch.search(this.astQuery).subscribe((results) => {
       this.results = results;
       this.searching = false;
