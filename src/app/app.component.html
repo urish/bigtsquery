@@ -10,21 +10,7 @@
     Type your query below or use one of the following presets, and then click the search button:
   </p>
   <p class="mat-typography sample-queries">
-    <a href="#" (click)="astQuery='FunctionDeclaration:has(ExportKeyword)>Identifier'">
-      Exported Functions
-    </a>
-    <a href="#" (click)="astQuery='ClassDeclaration:has(ExportKeyword)>Identifier'">
-      Exported Classes
-    </a>
-    <a href="#" (click)="astQuery='Decorator>CallExpression[expression.name=Component]'">
-      Angular Components
-    </a>
-    <a href="#" (click)="astQuery='ClassDeclaration:has(HeritageClause Identifier[name=Vue])'">
-      Vue Components
-    </a>
-    <a href="#" (click)="astQuery='CallExpression[expression.name=describe] CallExpression[expression.name=it]'">
-      BDD Tests
-    </a>
+    <a *ngFor="let preset of presets" (click)="astQuery=preset.value" href="#">{{preset.name}}</a>
   </p>
   <div class="search-container">
     <mat-form-field class="search-field">
