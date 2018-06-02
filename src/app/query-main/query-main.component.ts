@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, first } from 'rxjs/operators';
 import { AstSearchService, IQueryResponse } from '../ast-search.service';
 
 interface IPreset {
@@ -52,14 +52,23 @@ export class QueryMainComponent implements OnInit, OnDestroy {
     this.destroy$.next();
   }
 
-  public search() {
+  public async search() {
     this.searching = true;
     this.queryResponse = {};
     this.updateQueryParams(this.astQuery);
-    this.astSearch.search(this.astQuery).subscribe((response) => {
-      this.queryResponse = response;
+    try {
+      this.queryResponse = await this.astSearch
+        .search(this.astQuery)
+        .pipe(first())
+        .toPromise();
+    } catch (err) {
+      this.queryResponse = {
+        error: err && err.message ? err.message : err.toString(),
+        errorKind: 'requestFailed',
+      };
+    } finally {
       this.searching = false;
-    });
+    }
   }
 
   private updateQueryParams(selector: string) {

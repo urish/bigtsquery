@@ -27,4 +27,16 @@
         <a href="https://github.com/urish/bigtsquery/issues/new" target="_blank">open an issue</a> and include information about your query.</p>
     </mat-card-content>
   </div>
+
+  <div *ngIf="kind == 'requestFailed'">
+    <div class="error-icon">
+      <mat-icon>error</mat-icon>
+    </div>
+    <mat-card-title>
+      Request Failed
+    </mat-card-title>
+    <mat-card-content>
+      {{message}}
+    </mat-card-content>
+  </div>
 </mat-card>

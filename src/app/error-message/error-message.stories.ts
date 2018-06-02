@@ -27,4 +27,12 @@ storiesOf('ErrorMessage', module)
       message: 'Internal server error',
       kind: 'serverError',
     },
+  }))
+  .add('with request failed', () => ({
+    component: ErrorMessageComponent,
+    moduleMetadata,
+    props: {
+      message: 'Http failure response for (unknown url): 0 Unknown Error',
+      kind: 'requestFailed',
+    },
   }));
