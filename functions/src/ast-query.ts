@@ -57,7 +57,6 @@ export async function astQuery(request: e.Request, response: e.Response) {
       const cacheEntry = snapshot.docs[0].data() as ICacheEntry;
       results = cacheEntry.results;
     } else {
-      const startTime = new Date().getTime();
       results = await executeQuery(query);
       await queriesCollection.add({
         query,
