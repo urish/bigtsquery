@@ -45,8 +45,11 @@ export async function astQuery(request: e.Request, response: e.Response) {
   try {
     tsquery.parse(query);
   } catch (err) {
+    console.error(`[${request.ip}] Invalid selector: `, err);
     response.json({ error: err.toString(), errorKind: 'queryError' });
+    return;
   }
+
   try {
     const snapshot = await queriesCollection.where('query', '==', query).get();
     let results: IQueryResult[];
