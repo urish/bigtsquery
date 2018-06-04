@@ -27,6 +27,12 @@ export class QueryMainComponent implements OnInit, OnDestroy {
     { name: 'Angular Components', value: 'Decorator>CallExpression[expression.name=Component]' },
     { name: 'Vue Components', value: 'ClassDeclaration:has(HeritageClause Identifier[name=Vue])' },
     {
+      name: 'React Components',
+      value:
+        'ClassDeclaration:has(HeritageClause PropertyAccessExpression[expression.name=React][name.name=Component])' +
+        ':not(:has(DeclareKeyword))[members.length>0]',
+    },
+    {
       name: 'BDD Tests',
       value: 'CallExpression[expression.name=describe] CallExpression[expression.name=it]',
     },
