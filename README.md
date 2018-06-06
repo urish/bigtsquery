@@ -4,7 +4,9 @@ Run TypeScript AST Queries across all public TypeScript code on GitHub.
 
 [![Build Status](https://travis-ci.org/urish/bigtsquery.svg?branch=master)](https://travis-ci.org/urish/bigtsquery)
 
-[Live Demo](https://bigtsquery.firebaseapp.com/)
+🔍 [Live Demo](https://bigtsquery.firebaseapp.com/)
+
+📖 [Read the blog post](https://medium.com/@urish/yes-i-compiled-1-000-000-typescript-files-in-under-40-seconds-this-is-how-6429a665999c)
 
 ## Development
 
