@@ -11,7 +11,7 @@ function f() {
   return 5;
 }`.trim(),
     );
-    const [node] = tsquery.query(ast, 'FirstLiteralToken');
+    const [node] = tsquery.query(ast, 'NumericLiteral');
     expect(getTextAround(node)).toEqual({
       line: 0,
       matchChar: 9,
@@ -29,7 +29,7 @@ function f() {
   return 5;
 }`.trim(),
     );
-    const [node] = tsquery.query(ast, 'FirstLiteralToken');
+    const [node] = tsquery.query(ast, 'NumericLiteral');
     expect(getTextAround(node)).toEqual({
       line: 0,
       matchChar: 9,
