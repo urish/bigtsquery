@@ -8,8 +8,6 @@ WHERE
   SELECT
     id
   FROM
-    `bigquery-public-data.github_repos.files`
-  WHERE
-    path LIKE '%.ts')
+    `typescript.tsfiles`)
   AND binary = FALSE
   AND NOT STARTS_WITH(content, '<')
