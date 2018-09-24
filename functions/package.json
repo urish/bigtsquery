@@ -32,7 +32,13 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "src/.+\\.spec\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   },
   "private": true
 }
