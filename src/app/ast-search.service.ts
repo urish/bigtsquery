@@ -35,4 +35,9 @@ export class AstSearchService {
     const q = encodeURIComponent(query);
     return this.http.get<IQueryResponse>(`${serverUrl}/query?q=${q}`);
   }
+
+  count(query: string) {
+    const q = encodeURIComponent(query);
+    return this.http.get<IQueryResponse>(`${serverUrl}/count?q=${q}`);
+  }
 }

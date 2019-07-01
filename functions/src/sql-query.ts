@@ -1,7 +1,8 @@
 import * as tsqueryModule from '@phenomnomnominal/tsquery';
 import * as searchUtils from './search-utils';
 
-declare const getTextAround: typeof searchUtils.getTextAround;
+// NOTE: cannot use import as it becomes qualified in commonJS transpiled output.
+const getTextAround = searchUtils.getTextAround;
 
 function umlCode(this: { tsquery: typeof tsqueryModule }, src: string, query: string) {
   const { tsquery } = this.tsquery;
@@ -15,9 +16,10 @@ function umlCode(this: { tsquery: typeof tsqueryModule }, src: string, query: st
 }
 
 export function getUmlCode() {
-  const { tsquery } = tsqueryModule;
-  const source = tsquery.ast(umlCode.toString());
-  return searchUtils.getTextAround.toString() + ' ' + tsquery(source, 'Block')[0].getFullText();
+  return `
+    ${getTextAround}
+    ${umlCode}
+    return umlCode.call(this, src, query);`;
 }
 
 export function getSqlQuery(limit = 100) {
@@ -32,11 +34,46 @@ export function getSqlQuery(limit = 100) {
     SELECT
       id,
       paths,
-      match 
+      match
     FROM
       typescript.tscontents_fast,
       UNNEST(getResults(content, ?)) AS match
     LIMIT
       ${limit}
+  `;
+}
+
+function umlCodeCount(this: { tsquery: typeof tsqueryModule }, src: string, query: string) {
+  const { tsquery } = this.tsquery;
+  try {
+    const sourceFile = tsquery.ast(src);
+    const results = tsquery(sourceFile, query);
+    return [results.length];
+  } catch (err) {
+    return [];
+  }
+}
+
+export function getUmlCodeCount() {
+  return `
+    ${getTextAround}
+    ${umlCodeCount}
+    return umlCodeCount.call(this, src, query);`;
+}
+
+export function getSqlCount() {
+  return `
+    CREATE TEMPORARY FUNCTION getCount(src STRING, query STRING)
+    RETURNS ARRAY<INT64>
+    LANGUAGE js AS """ ${getUmlCodeCount().replace(/\\/g, '\\\\')} """
+    OPTIONS (
+      library="gs://bigtsquery/tsquery-2.0.0-beta.4.umd.min.js"
+    );
+
+    SELECT
+      sum(match_count) as count
+    FROM
+      typescript.tscontents_fast,
+      UNNEST(getCount(content, ?)) AS match_count
   `;
 }

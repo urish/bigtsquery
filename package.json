@@ -66,7 +66,14 @@
     "typescript": "~2.7.2"
   },
   "lint-staged": {
-    "*.{js,json}": ["prettier --write", "git add"],
-    "*.ts": ["prettier --write", "tslint --fix", "git add"]
+    "*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "prettier --write",
+      "tslint --fix",
+      "git add"
+    ]
   }
 }
